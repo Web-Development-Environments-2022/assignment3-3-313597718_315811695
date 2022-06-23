@@ -1,3 +1,11 @@
 <template>
-<h1> test</h1>
+  <div class="container">
+  <h2> Favorites</h2>
+    <RecipePreviewList
+      v-if="this.clicked"
+      title="Favorites"
+      state="favorites"
+      class="RandomRecipes center"
+    />
+  </div>
 </template>
