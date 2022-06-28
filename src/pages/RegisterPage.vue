@@ -167,7 +167,7 @@ export default {
     async Register() {
       try {
         const response = await this.axios.post(
-          "http://localhost:3000/Register",
+          "https://bgfood.cs.bgu.ac.il/Register",
           //this.$root.store.server_domain + "/Register",
 
           {

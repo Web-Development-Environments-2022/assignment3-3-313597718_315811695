@@ -98,7 +98,7 @@ export default {
     async onFavorites() {
       try {
         const response = await this.axios.get(
-          "http://localhost:3000/users/getfavorites",
+          "https://bgfood.cs.bgu.ac.il/users/getfavorites",
           { withCredentials: true }
           //this.$root.store.server_domain + "/recipes/random",
           // "https://test-for-3-2.herokuapp.com/recipes/random"
@@ -116,27 +116,25 @@ export default {
 
     async onSearch() {
       try {
-        console.log("on search");
-        console.log("sort = ", this.sortBy);
+        console.log("this.recipeskeywords:",this.recipeskeywords);
+        console.log("on search; sort = ", this.sortBy);
         if (this.recipeskeywords == "") {
-          console.log("quey is null");
+          console.log("query is null");
           return;
         }
-        console.log(" query is : ", this.recipeskeywords);
         const response = await this.axios.get(
-          `http://localhost:3000/recipes/search?recipeskeywords=${this.recipeskeywords}&num=${this.num}&cuisine=${this.cuisine}&intolerances=${this.intolerances}&diet=${this.diet}`,
+          `https://bgfood.cs.bgu.ac.il/recipes/search?recipeskeywords=${this.recipeskeywords}&num=${this.num}&cuisine=${this.cuisine}&intolerances=${this.intolerances}&diet=${this.diet}`,
           { withCredentials: true }
         );
 
         console.log("on search , respones : ", response);
         if (typeof response.data == "undefined") {
-          
           this.noResult = true;
           return;
         }
         const recipes = response.data;
         if (recipes.length == 0) {
-          console.log("bbbbb");
+          console.log("answer is empty");
           this.noResult = true;
           return;
         }
@@ -145,7 +143,7 @@ export default {
         this.recipes = [];
         this.recipes.push(...recipes);
 
-        console.log("on search 115, sort = ", this.sortBy);
+        console.log("on search , sort = ", this.sortBy);
         switch (this.sortBy) {
           case "readyInMinutes":
             console.log("in readyInMinutes ");
@@ -160,18 +158,17 @@ export default {
             break;
           default:
         }
-
-        console.log("after swich case");
+        console.log("after switch case");
       } catch (err) {
         console.log(err.response);
-        this.form.submitError = err.response.data.message;
+        //this.form.submitError = err.response.data.message;
       }
     },
     async onMyRecipes() {
       console.log("in My Recipes in RecipePreviewList");
       try {
         const response = await this.axios.get(
-          "http://localhost:3000/users/getMyrecipes"
+          "https://bgfood.cs.bgu.ac.il/users/getMyrecipes"
         );
         console.log("response12: ", response);
         const recipes = response.data;
@@ -186,7 +183,7 @@ export default {
     async randomRecipes() {
       try {
         const response = await this.axios.get(
-          "http://localhost:3000/recipes/random",
+          "https://bgfood.cs.bgu.ac.il/recipes/random",
           { withCredentials: true }
           //this.$root.store.server_domain + "/recipes/random",
           //"https://test-for-3-2.herokuapp.com/recipes/random"
@@ -205,7 +202,7 @@ export default {
       console.log("on Family");
       try {
         const response = await this.axios.get(
-          "http://localhost:3000/users/getFamily",
+          "https://bgfood.cs.bgu.ac.il/users/getFamily",
           { withCredentials: true }
         );
         console.log("family result: ", response.data);
@@ -220,7 +217,7 @@ export default {
     async lastRecipes() {
       try {
         const response = await this.axios.get(
-          "http://localhost:3000/recipes/getLast3",
+          "https://bgfood.cs.bgu.ac.il/recipes/getLast3",
           { withCredentials: true }
           //this.$root.store.server_domain + "/recipes/random",
           // "https://test-for-3-2.herokuapp.com/recipes/random"

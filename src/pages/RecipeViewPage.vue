@@ -77,7 +77,7 @@ export default {
       try {
         console.log("70:   ", this.$route.params.recipeId);
         const response = await this.axios.get(
-          "http://localhost:3000/users/getMyrecipesWithId?recipe_id=" +
+          "https://bgfood.cs.bgu.ac.il/users/getMyrecipesWithId?recipe_id=" +
           this.$route.params.recipeId,
           { withCredentials: true }
         );
@@ -106,7 +106,7 @@ export default {
         //   }
         // );
         const response = await this.axios.get(
-          "http://localhost:3000/recipes/getFullRecipe?recipe_id=" +
+          "https://bgfood.cs.bgu.ac.il/recipes/getFullRecipe?recipe_id=" +
           this.$route.params.recipeId,
           { withCredentials: true }
         );

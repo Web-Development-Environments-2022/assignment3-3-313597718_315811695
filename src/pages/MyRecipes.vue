@@ -157,7 +157,7 @@ export default {
                 console.log('time: ',this.time );
                 console.log('Likes: ',this.aggregateLikes );
                 const response = await this.axios.post(
-                    "http://localhost:3000/users/createRecipe",
+                    "https://bgfood.cs.bgu.ac.il/users/createRecipe",
                     // {
                     //     withCredentials: true,
                     //     credentials: 'include',

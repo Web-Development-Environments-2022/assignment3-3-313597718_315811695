@@ -2,7 +2,7 @@
   <div class="container">
     <h1 class="title">Search Page</h1>
     <div >
-    <b-form @submit="onSearch"  >
+    <b-form v-on:submit.prevent="onSearch"  >
       <b-form-group id="input-group-search" label-for="search" >
         <b-form-input
           id="search"
@@ -16,7 +16,7 @@
     </b-form>
     </div>
     <div class="searchitems">
-      cuisine:
+      Cuisine:
       <select v-model="cuisine">
         <option
           v-for="(c, index) in cuisineArray"
@@ -27,7 +27,7 @@
         </option>
       </select>
 
-      intolerances:
+      Intolerances:
       <select v-model="intolerances">
         <option
           v-for="(i, index) in intolerancesArray"
@@ -38,28 +38,28 @@
         </option>
       </select>
 
-      diet:
+      Diet:
       <select v-model="diet">
         <option v-for="(d, index) in dietArray" :key="index" :value="d.value">
           {{ d.text }}
         </option>
       </select>
 
-      number of result:
+      Number of result:
       <select v-model="num">
         <option v-for="(n, index) in numArray" :key="index" :value="n.value">
           {{ n.text }}
         </option>
       </select>
 
-      sort by:
+       Sort by:
       <select v-model="sortBy">
         <option v-for="(s, index) in sortByArray" :key="index" :value="s.value">
           {{ s.text }}
         </option>
       </select>
     </div>
-    <div v-if="lastSearch != ''">your last serach is : {{ lastSearch }}</div>
+    <div v-if="lastSearch != ''">Your last serach is : {{ lastSearch }}</div>
     <RecipePreviewList
       :key="componentKey"
       v-if="componentKey > 0"
@@ -189,11 +189,11 @@ export default {
       try {
         console.log("on get last search");
         const response = await this.axios.get(
-          "http://localhost:3000/users/lastSearch",
+          "https://bgfood.cs.bgu.ac.il/users/lastSearch",
           { withCredentials: true }
         );
         this.lastSearch = response.data;
-        console.log("respones is : ", response.data);
+        console.log("getLastSearch respones is : ", response.data);
       } catch (error) {}
     },
   },
