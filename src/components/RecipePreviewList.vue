@@ -14,7 +14,7 @@
         </span>
       </b-col>
     </b-row>
-    <h3 v-if="noResult">No Result found, try another search. </h3>
+    <br><h3 v-if="noResult">No Result found, try another search.</h3>
   </b-container>
 </template>
 

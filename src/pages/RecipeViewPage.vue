@@ -12,7 +12,7 @@
               <!-- <h1> {{this.state}} </h1> -->
               <div>Ready in {{ recipe.readyInMinutes }} minutes</div>
               <div>Likes: {{ recipe.aggregateLikes }} likes</div>
-              <div>number of dishes: {{ recipe.servings }}</div>
+              <div>Number of dishes: {{ recipe.servings }}</div>
                <b-badge v-if="recipe.vegan" variant="success">vegan</b-badge>
           <b-badge v-if="recipe.vegetarian" variant="primary">vegetarian</b-badge>
            <b-badge v-if="recipe.glutenFree" variant="info">glutenFree</b-badge>

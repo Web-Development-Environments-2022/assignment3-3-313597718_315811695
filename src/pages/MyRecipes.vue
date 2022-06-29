@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>Welcome to My Recipes page !<br><br></h2>
+        <h2 style="text-align: center;">Welcome to My Recipes page !<br><br></h2>
         <b-button v-b-modal.modal-prevent-closing>Create New Recipe!</b-button>
         <RecipePreviewList 
         :key="componentKey"

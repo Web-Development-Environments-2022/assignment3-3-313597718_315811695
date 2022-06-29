@@ -18,7 +18,7 @@
             <li>{{ recipe.aggregateLikes }} likes</li>
             <span v-if="$root.store.username">
           <div v-if="recipe.favorite === false">
-           <li> add to faviorte
+           <li> Add to faviorte
             <b-icon icon="star" @click="like(recipe.id).prevent"></b-icon>
             </li>
           </div>

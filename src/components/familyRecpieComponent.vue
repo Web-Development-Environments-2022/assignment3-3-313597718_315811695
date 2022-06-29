@@ -7,10 +7,10 @@
         <b-card-text>
           <!-- state is :{{ state }} recpies is : {{ recipe.id }} or {{ recipe.id }} -->
           <ul class="recipe-overview">
-            <li>created by {{ recipe.owner }}</li>
-            <li>when to make:{{ recipe.whentomake }}</li>
-            <li>ingredients: {{ recipe.ingredients }}</li>
-            <li>instructions: {{ recipe.instructions }}</li>
+            <li>Created by {{ recipe.owner }}</li>
+            <li>When to make:{{ recipe.whentomake }}</li>
+            <li>Ingredients: {{ recipe.ingredients }}</li>
+            <li>Instructions: {{ recipe.instructions }}</li>
           </ul>
         </b-card-text>
       </b-card-body>

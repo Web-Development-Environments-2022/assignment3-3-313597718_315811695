@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-  <h1> Favorites</h1>
+  <h1 style="text-align: center;"> Favorites</h1>
     <RecipePreviewList
       title="Favorites"
       state="favorites"

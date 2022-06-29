@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="title">Search Page</h1>
+    <br><h1 class="title">Search</h1>
     <div >
     <b-form v-on:submit.prevent="onSearch"  >
       <b-form-group id="input-group-search" label-for="search" >
@@ -58,8 +58,8 @@
           {{ s.text }}
         </option>
       </select>
-    </div>
-    <div v-if="lastSearch != ''">Your last serach is : {{ lastSearch }}</div>
+    </div><br>
+    <div v-if="lastSearch != ''">Your last serach was : {{ lastSearch }}</div>
     <RecipePreviewList
       :key="componentKey"
       v-if="componentKey > 0"
@@ -151,7 +151,7 @@ export default {
       sortByArray: [
         { text: "None", value: "None" },
         { text: "Likes", value: "aggregateLikes" },
-        { text: "readyInMinutes", value: "readyInMinutes" },
+        { text: "Minutes", value: "readyInMinutes" },//new
       ],
       numArray: [
         { text: "5", value: "5" },

@@ -39,7 +39,7 @@
             </div>
             <div v-else>
               <b-nav-item class="navWA">
-                welcome {{ $root.store.username }}
+                Welcome {{ $root.store.username }}
               </b-nav-item>
 
               <b-nav-item-dropdown
