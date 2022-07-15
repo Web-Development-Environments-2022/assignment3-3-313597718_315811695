@@ -8,11 +8,11 @@
         state="MyRecipes" 
         class="RandomRecipes center" />
 
-        <b-modal id="modal-prevent-closing" ref="modal" title="Submit Your Form" @show="resetModal" @hidden="resetModal"
+        <b-modal id="modal-prevent-closing" ref="modal" title="Create Your Recipe" @show="resetModal" @hidden="resetModal"
             @ok="handleOk">
             <form ref="form" @submit.stop.prevent="handleSubmit">
                 <b-form-group label="Title" label-for="title-input" :state="titleState">
-                    <b-form-input id="title-input" placeholder="your recipe title" v-model="title" :state="titleState"
+                    <b-form-input id="title-input" placeholder="Your recipe title" v-model="title" :state="titleState"
                         required></b-form-input>
                 </b-form-group>
 
@@ -36,25 +36,25 @@
                     </b-form-input>
                 </b-form-group>
 
-                <b-form-group label="numOfDishes" label-for="numOfDishes-input" :state="numOfDishesState">
+                <b-form-group label="Servings" label-for="numOfDishes-input" :state="numOfDishesState">
                     <b-form-input id="numOfDishes-input" type="number" min=1 placeholder="Numbers only!" v-model="numOfDishes"
                         :state="numOfDishesState" required>
                     </b-form-input>
                 </b-form-group>
 
-                <b-form-group label="image" label-for="image-input" :state="imageState">
+                <b-form-group label="Image url" label-for="image-input" :state="imageState">
                     <b-form-input id="image-input" v-model="image"
                         :state="imageState" required>
                     </b-form-input>
                 </b-form-group>
 
-                <b-form-group label="ingredients" label-for="ingredients-input" :state="ingredientsState">
+                <b-form-group label="Ingredients" label-for="ingredients-input" :state="ingredientsState">
                     <b-form-input id="ingredients-input" v-model="ingredients"
                         :state="ingredientsState" required>
                     </b-form-input>
                 </b-form-group>
 
-                <b-form-group label="instructions" label-for="instructions-input" :state="instructionsState">
+                <b-form-group label="Instructions" label-for="instructions-input" :state="instructionsState">
                     <b-form-input id="instructions-input" v-model="instructions" :state="instructionsState" required>
                     </b-form-input>
                 </b-form-group>
