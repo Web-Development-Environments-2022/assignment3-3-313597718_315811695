@@ -20,7 +20,7 @@
 <script>
 export default {
   mounted() {
-    console.log("in famliy");
+    // console.log("in famliy");
     // this.axios.get(this.recipe.image).then((i) => {
     //   this.image_load = true;
     // });

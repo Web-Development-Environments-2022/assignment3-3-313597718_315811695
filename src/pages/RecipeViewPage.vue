@@ -13,23 +13,23 @@
               <div>Ready in {{ recipe.readyInMinutes }} minutes</div>
               <div>Likes: {{ recipe.aggregateLikes }} likes</div>
               <div>Number of dishes: {{ recipe.servings }}</div>
-               <b-badge v-if="recipe.vegan" variant="success">vegan</b-badge>
-          <b-badge v-if="recipe.vegetarian" variant="primary">vegetarian</b-badge>
-           <b-badge v-if="recipe.glutenFree" variant="info">glutenFree</b-badge>
+              <b-badge v-if="recipe.vegan" variant="success">vegan</b-badge>
+              <b-badge v-if="recipe.vegetarian" variant="primary">vegetarian</b-badge>
+              <b-badge v-if="recipe.glutenFree" variant="info">glutenFree</b-badge>
             </div>
             Ingredients:
-            <ul >
-            <span v-if="this.state === 'MyRecipes'">
-            <li>
-                {{ recipe.ingredients }}
-              </li>
-            </span>
-            <span v-else>
-            <li v-for="(r, index) in recipe.extendedIngredients" :key="index + '_' + r.id">
-                {{ r.original }}
-              </li>
-            </span>
-              
+            <ul>
+              <span v-if="this.state === 'MyRecipes'">
+                <li>
+                  {{ recipe.ingredients }}
+                </li>
+              </span>
+              <span v-else>
+                <li v-for="(r, index) in recipe.extendedIngredients" :key="index + '_' + r.id">
+                  {{ r.original }}
+                </li>
+              </span>
+
             </ul>
           </div>
           <div class="wrapped">
@@ -63,8 +63,7 @@ export default {
     };
   },
   mounted() {
-   
-    console.log(this.$route.params.recipeId);
+    //console.log(this.$route.params.recipeId);
     if (this.$route.params.state == "MyRecipes") {
       this.createdMyRecipe();
     } else {
@@ -75,21 +74,21 @@ export default {
     async createdMyRecipe() {
       // console.log(this.state);
       try {
-        console.log("70:   ", this.$route.params.recipeId);
+        //console.log("70:   ", this.$route.params.recipeId);
         const response = await this.axios.get(
           "https://bgfood.cs.bgu.ac.il/users/getMyrecipesWithId?recipe_id=" +
           this.$route.params.recipeId,
           { withCredentials: true }
         );
 
-        console.log("data:   ", response.data);
+        //console.log("data:   ", response.data);
         if (response.status !== 200) this.$router.replace("/NotFound");
         const recipes = response.data;
         this.recipes = [];
         this.recipes.push(...recipes);
         this.recipe = this.recipes[0];
       } catch (error) {
-        console.log(error.response.data);
+        console.log("Error: " + error.response.data);
       }
     },
     async created() {
@@ -111,14 +110,13 @@ export default {
           { withCredentials: true }
         );
 
-        console.log("data:   ", response.data);
+        //console.log("data:   ", response.data);
         if (response.status !== 200) this.$router.replace("/NotFound");
         // } catch (error) {
         //   console.log("error.response.status", error.response.status);
         //   this.$router.replace("/NotFound");
         //   return;
         // }
-        console.log("line 82");
         let {
           analyzedInstructions,
           instructions,
@@ -133,7 +131,6 @@ export default {
           glutenFree,
         } = response.data;
 
-        console.log("line 92");
 
         let _instructions = analyzedInstructions
           .map((fstep) => {
@@ -141,7 +138,6 @@ export default {
             return fstep.steps;
           })
           .reduce((a, b) => [...a, ...b], []);
-        console.log("line 92");
         let _recipe = {
           instructions,
           _instructions,
@@ -159,7 +155,7 @@ export default {
 
         this.recipe = _recipe;
       } catch (error) {
-        console.log(error.response.data);
+        console.log("Error: " + error.response.data);
       }
     },
   },

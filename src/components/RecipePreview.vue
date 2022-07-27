@@ -57,18 +57,18 @@ export default {
   methods: {
     async like() {
       try {
-        console.log("in fav", this.recipe.id);
+        // console.log("in fav", this.recipe.id);
         this.recipe.favorite = true;
         const response = await this.axios.get(
           "https://bgfood.cs.bgu.ac.il/users/addfavorites?recipeid=" + this.recipe.id,
           { withCredentials: true }
         );
 
-        console.log(response);
+        // console.log(response);
         this.$forceUpdate();
         // this.$root.loggedIn = true;
       } catch (err) {
-        console.log(err.response);
+        console.log("Error: " + err.response);
       }
     },
   },

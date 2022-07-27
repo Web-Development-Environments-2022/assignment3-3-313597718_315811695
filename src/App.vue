@@ -3,7 +3,9 @@
     <div>
       <b-navbar class="menu" toggleable="lg">
         <b-navbar-brand class="navbar-brand">
-          <img class="navbar-logo" src="../src/assets/logo1.jpeg" />
+          <router-link :to="{ name: 'main' }" class="router1">
+            <img class="navbar-logo" src="../src/assets/logo1.jpeg" />
+          </router-link>
         </b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -17,24 +19,24 @@
             </b-nav-item>
 
             <b-nav-item class="navSearch">
-              <router-link :to="{ name: 'search' } "  class="router1">Search</router-link>
+              <router-link :to="{ name: 'search' }" class="router1">Search</router-link>
             </b-nav-item>
             <b-nav-item>
-              <router-link :to="{ name: 'about' }"  class="router1">About</router-link>
+              <router-link :to="{ name: 'about' }" class="router1">About</router-link>
             </b-nav-item>
           </b-navbar-nav>
 
           <!-- Right aligned nav items -->
-          <b-navbar-nav class="ml-auto" >
+          <b-navbar-nav class="ml-auto">
             <div v-if="!$root.store.username">
               <b-nav-item class="navHG">
                 Hello Guest
               </b-nav-item>
               <b-nav-item class="navR">
-                <router-link :to="{ name: 'register' }"  class="router1">Register</router-link>
+                <router-link :to="{ name: 'register' }" class="router1">Register</router-link>
               </b-nav-item>
               <b-nav-item class="navL">
-                <router-link :to="{ name: 'login' }"  class="router1"> Login </router-link>
+                <router-link :to="{ name: 'login' }" class="router1"> Login </router-link>
               </b-nav-item>
             </div>
             <div v-else>
@@ -42,26 +44,15 @@
                 Welcome {{ $root.store.username }}
               </b-nav-item>
 
-              <b-nav-item-dropdown
-                class="dropdownNav"
-                right
-                text="User"
-                v-if="$root.store.username"
-              >
+              <b-nav-item-dropdown class="dropdownNav" right text="User" v-if="$root.store.username">
                 <b-dropdown-item>
-                  <router-link :to="{ name: 'myRecipes' }"  class="router1"
-                    >My Recipes</router-link
-                  >
+                  <router-link :to="{ name: 'myRecipes' }" class="router1">My Recipes</router-link>
                 </b-dropdown-item>
                 <b-dropdown-item>
-                  <router-link :to="{ name: 'familyRecpies' }"  class="router1"
-                    >My Family Recpies</router-link
-                  >
+                  <router-link :to="{ name: 'familyRecpies' }" class="router1">My Family Recpies</router-link>
                 </b-dropdown-item>
                 <b-dropdown-item>
-                  <router-link :to="{ name: 'favorites' }"  class="router1"
-                    >My Favorites</router-link
-                  >
+                  <router-link :to="{ name: 'favorites' }" class="router1">My Favorites</router-link>
                 </b-dropdown-item>
               </b-nav-item-dropdown>
               <b-nav-item class="logoutNav">
@@ -98,6 +89,7 @@ export default {
 <style lang="scss">
 @import "@/scss/form-style.scss";
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed");
+
 #app {
   background-image: "url(https://vuejs.org/images/logo.png)";
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -119,13 +111,16 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
 .navbar-logo {
   width: 15%;
   border-radius: 50%;
 }
+
 .navbar-brand {
   margin-right: -20rem;
 }
+
 .menu {
   color: white;
   background-color: #1b1b19 !important;
@@ -136,6 +131,7 @@ export default {
   color: rgb(255, 248, 248) !important;
   display: flex !important;
 }
+
 a.nav-link {
   padding-left: 10% !important;
   //color: white !important;
@@ -145,8 +141,9 @@ a.nav-link {
   display: inline-block;
   width: 110px;
 }
+
 .navHG:hover {
-    background-color: #1b1b19 !important;
+  background-color: #1b1b19 !important;
 }
 
 .navR {
@@ -167,6 +164,7 @@ a.nav-link {
 .logoutNav {
   display: inline-block;
 }
+
 .navWA {
   display: inline-block;
   width: 155px;
@@ -230,8 +228,8 @@ li.nav-item:hover {
 .navWA:hover {
   background-color: #1b1b19 !important;
 }
-.router1{
+
+.router1 {
   color: white;
 }
-
 </style>

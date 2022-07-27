@@ -11,7 +11,7 @@
         This website contiane some functionality about recipes.<br>
 
         For exmpale, you can create your own recipe, you can search and look at recipes, you can saved your favorites
-        recipes to watch them agian.
+        recipes to watch them again.
         <br><br>HW 2 pacmen git: <a
             href="https://github.com/Web-Development-Environments-2022/assignment2-315811695_313597718">Pacman git</a>
         <br><br>Pacman game: <a

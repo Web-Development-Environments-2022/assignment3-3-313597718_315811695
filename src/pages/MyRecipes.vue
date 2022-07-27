@@ -136,7 +136,7 @@ export default {
             // Prevent modal from closing
             bvModalEvent.preventDefault()
 
-            console.log('-------submit-------');
+            //console.log('-------submit-------');
             // console.log(this.time, this.title);
 
             // Trigger submit handler
@@ -154,8 +154,8 @@ export default {
             })
         }, async createMyRecipe() {
             try {
-                console.log('time: ',this.time );
-                console.log('Likes: ',this.aggregateLikes );
+                //console.log('time: ',this.time );
+                //console.log('Likes: ',this.aggregateLikes );
                 const response = await this.axios.post(
                     "https://bgfood.cs.bgu.ac.il/users/createRecipe",
                     // {
@@ -177,10 +177,10 @@ export default {
                 );
                 //this.$router.push("/login");
                 //console.log('time', this.time);
-                console.log("--createMyRecipe:", response);
+                //console.log("--createMyRecipe:", response);
                 this.componentKey += 1;
             } catch (err) {
-                console.log("error123: ", err.response);
+                console.log("Error: " +  err.response);
                 this.submitError = err.response.data.message;
             }
         },

@@ -181,19 +181,19 @@ export default {
       // }
 
       this.recipeskeywords = this.form.recipeskeywords;
-      console.log("sumbit click with ", this.form.recipeskeywords);
+      //console.log("sumbit click with ", this.form.recipeskeywords);
 
       // this.clicked = true;
     },
     async getLastSearch() {
       try {
-        console.log("on get last search");
+        //console.log("on get last search");
         const response = await this.axios.get(
           "https://bgfood.cs.bgu.ac.il/users/lastSearch",
           { withCredentials: true }
         );
         this.lastSearch = response.data;
-        console.log("getLastSearch respones is : ", response.data);
+        //console.log("getLastSearch respones is : ", response.data);
       } catch (error) {}
     },
   },
